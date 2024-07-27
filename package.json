@@ -4,7 +4,8 @@
   "displayName": "Rope",
   "repository": "https://github.com/davidmcnamee/rope-vscode-ext",
   "description": "Rope refactoring for python code",
-  "version": "0.0.3",
+  "icon": "images/templogo.png",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.91.0"
   },
