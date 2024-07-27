@@ -1,12 +1,10 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import { ChildProcessWithoutNullStreams, spawn } from 'child_process';
+import { ChildProcessWithoutNullStreams, spawn, spawnSync } from 'child_process';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 	let subprocess: ChildProcessWithoutNullStreams;
 	try {
@@ -16,9 +14,6 @@ export function activate(context: vscode.ExtensionContext) {
 		throw error;
 	}
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
 	const disposable = vscode.commands.registerCommand('rope-python.inline_symbol', () => {
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
@@ -54,11 +49,9 @@ function getCursorData(editor: vscode.TextEditor) {
 export function deactivate() { }
 
 
-
 function startPythonEditor(extensionPath: string) {
     const pythonDir = join(extensionPath, "python");
-	const pythonFilePath = join(pythonDir, 'rope_runner.py');
-    const pythonProcess = spawn('poetry', ["run", "python", pythonFilePath], { cwd: pythonDir });
+	const pythonProcess = installAndRun(pythonDir);
 
     pythonProcess.stdout.on('data', (data) => {
         console.log(`stdout: "${data}"`);
@@ -84,4 +77,12 @@ function getCurrentWorkspaceFolder(): string | undefined {
         return workspaceFolders[0].uri.fsPath;
     }
     return undefined;
+}
+
+
+function installAndRun(pythonDir: string) {
+	const pythonFilePath = join(pythonDir, 'rope_runner.py');
+    spawnSync('poetry', ['install'], { cwd: pythonDir });
+	const pythonProcess = spawn('poetry', ["run", "python", pythonFilePath], { cwd: pythonDir });
+	return pythonProcess;
 }
