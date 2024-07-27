@@ -2,8 +2,9 @@
   "publisher": "davidmcnamee",
   "name": "rope-python",
   "displayName": "Rope",
+  "repository": "https://github.com/davidmcnamee/rope-vscode-ext",
   "description": "Rope refactoring for python code",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.91.0"
   },
@@ -43,9 +44,5 @@
     "@vscode/vsce": "^2.31.1",
     "eslint": "^8.57.0",
     "typescript": "^5.4.5"
-  },
-  "files": [
-    "out",
-    "python"
-  ]
+  }
 }
