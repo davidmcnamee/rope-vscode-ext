@@ -1,8 +1,9 @@
 {
+  "publisher": "davidmcnamee",
   "name": "rope-python",
   "displayName": "Rope",
   "description": "Rope refactoring for python code",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.91.0"
   },
