@@ -10,6 +10,12 @@ You must have [`poetry`](https://python-poetry.org/docs/) installed in your PATH
 
 If you don't already have it installed, try `brew install pipx && pipx install poetry`
 
+## Usage
+
+1. Select the symbol that you want to refactor
+2. Hit Cmd+Shift+P to open the command palette
+3. Search "Refactor" to see the available Rope refactoring operations
+
 ## Extension Settings
 
 There are none! (yet)
