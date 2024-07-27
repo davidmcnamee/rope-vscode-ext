@@ -1,6 +1,6 @@
 {
   "name": "rope-python",
-  "displayName": "rope",
+  "displayName": "Rope",
   "description": "Rope refactoring for python code",
   "version": "0.0.1",
   "engines": {
@@ -9,13 +9,15 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "rope-python.helloWorld",
-        "title": "Hello World"
+        "command": "rope-python.inline_symbol",
+        "title": "Refactor: Inline Symbol"
       }
     ]
   },
@@ -37,5 +39,9 @@
     "typescript": "^5.4.5",
     "@vscode/test-cli": "^0.0.9",
     "@vscode/test-electron": "^2.4.0"
-  }
+  },
+  "files": [
+    "out",
+    "python"
+  ]
 }
