@@ -14,7 +14,7 @@ If you don't already have it installed, try `brew install pipx && pipx install p
 
 1. Select the symbol that you want to refactor
 2. Hit Cmd+Shift+P to open the command palette
-3. Search "Refactor" to see the available Rope refactoring operations
+3. Search for "Rope Refactor:" to see the available refactoring operations
 
 ## Extension Settings
 
